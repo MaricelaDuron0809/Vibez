@@ -36,6 +36,7 @@ return (
             </div>
         <div className="play-footer">
                 <p>This is where player will</p>
+                <p>This is where player will go</p>
             </div>
     </div>
     )

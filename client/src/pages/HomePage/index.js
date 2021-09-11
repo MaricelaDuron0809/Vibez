@@ -35,7 +35,7 @@ return (
             </div>
             </div>
         <div className="play-footer">
-                Hello
+                <p>This is where player will go</p>
             </div>
     </div>
     )

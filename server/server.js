@@ -96,5 +96,6 @@ app.get(
     res.redirect("/auth");
   }
 );
+app.get
 
 app.listen(PORT, () => console.log("Server is running"));

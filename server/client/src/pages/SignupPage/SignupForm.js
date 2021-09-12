@@ -25,8 +25,6 @@ const SignupForm = () => {
            setName('')
            setEmail("");
            setPassword("");
-          let url = "http://localhost:5000/auth/auth/spotify";
-          window.location = url;
          }
        } else {
          alert("Server Error");

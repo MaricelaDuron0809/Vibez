@@ -31,7 +31,7 @@ const LoginForm = () => {
   
 
   return (
-    <>
+    
       <div className="Login-form-ctr">
         <input
           placeholder="email"
@@ -51,7 +51,7 @@ const LoginForm = () => {
         <button onClick={handleSubmit}>LOGIN</button>
         <p>Dont have an account? Join Now</p>
       </div>
-    </>
+    
   );
 };
 

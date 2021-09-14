@@ -97,11 +97,6 @@ app.get(
     scope: [
       "user-read-email", 
       "user-read-private",
-      "user-read-currently-playing",
-      "user-read-recently-played",
-      "user-read-playback-state",
-      "user-modify-playback-state",
-      "playlist-modify-public",
     ],
   }),
   function (req, res) {

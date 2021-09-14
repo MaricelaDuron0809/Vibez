@@ -5,6 +5,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 // import SomePage from '../src/pages/SomePage'
 import HomePage from '../src/pages/HomePage'
+import 'font-awesome/css/font-awesome.min.css'
 
 import { userStateLayerValue } from './state/StateProvider';
 

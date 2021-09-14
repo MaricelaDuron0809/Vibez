@@ -1,5 +1,5 @@
 import React from 'react'
-import demo4 from '../images/demo4.png'
+import demo4 from '../../images/demo4.png'
 
 const YourPlaylist = () => {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import editicon from '../images/editicon.png'
+import editicon from '../../images/editicon.png'
 import { func, string } from "prop-types"
 
 const PlaylistTitle = ({getPlaylistTitle, title}) => {

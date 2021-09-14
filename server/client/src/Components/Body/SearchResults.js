@@ -1,6 +1,6 @@
 import React from 'react'
-import playbutton from '../images/playbutton.png'
-import demoalbum from '../images/demoalbum.png'
+import playbutton from '../../images/playbutton.png'
+import demoalbum from '../../images/demoalbum.png'
 
 const SearchResults = () => {
     return (

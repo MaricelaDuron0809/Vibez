@@ -7,3 +7,5 @@ export const StateProvider = ({ intialState, reducer, children}) => (
         {children}
     </StateContext.Provider>
 )
+
+export const userStateLayerValue = () => useContext(StateContext)

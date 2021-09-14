@@ -1,5 +1,5 @@
 import React from 'react'
-import CreatePlaylist from './CreatePlaylist'
+
 
 const Welcome = () => {
     return (

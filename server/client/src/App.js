@@ -1,15 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Switch, Route, BrowserRouter } from "react-router-dom"
 import './App.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 // import SomePage from '../src/pages/SomePage'
 import HomePage from '../src/pages/HomePage'
-import SpotifyWebApi from 'spotify-web-api-js';
 
-const spotify  = new SpotifyWebApi();
+import { userStateLayerValue } from './state/StateProvider';
+
+
 
 function App() {
+  // const [token, setToken] = useState(null);
+  // const [{user}, dispatch] = userStateLayerValue();
+
+  // useEffect(() => {
+  //   const hash = getTokenFromUrl();
+  //   window.location.hash = "";
+  //   const _token = hash.access.token;
+
+  //   if (token) {
+  //     setToken(_token);
+  //     spotify.setAccessToken(_token);
+
+  //     spotify.getMe().then((user) => {
+  //       dispatch ({
+  //         type: "SET_USER",
+  //         user: user,
+  //       })
+  //     })
+  //   }
+  //     console.log("I have a token", token)
+  // })
+
+
+
   return (
       <BrowserRouter>
         <Switch>

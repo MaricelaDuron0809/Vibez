@@ -1,6 +1,6 @@
 import React from 'react'
-import demo3 from '../images/demo3.png'
-import demoprofile from '../images/demoprofile.png'
+import demo3 from '../../images/demo3.png'
+import demoprofile from '../../images/demoprofile.png'
 
 const PopularPlaylist = () => {
     return (

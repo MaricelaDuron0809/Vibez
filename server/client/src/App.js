@@ -3,10 +3,11 @@ import { Switch, Route, BrowserRouter } from "react-router-dom"
 import './App.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-
 // import SomePage from '../src/pages/SomePage'
 import HomePage from '../src/pages/HomePage'
+import SpotifyWebApi from 'spotify-web-api-js';
 
+const spotify  = new SpotifyWebApi();
 
 function App() {
   return (

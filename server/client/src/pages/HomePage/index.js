@@ -9,6 +9,7 @@ import SearchResults from "../../Components/SearchResults";
 import PlaylistTitle from "../../Components/PlaylistTitle";
 import SongDetails from "../../Components/SongDetails";
 import YourPlaylist from "../../Components/YourPlaylist";
+import Player from "../../Components/Player";
 
 const HomePage = () => {
 
@@ -35,7 +36,7 @@ return (
             </div>
             </div>
         <div className="play-footer">
-                Hello
+                <Player />
             </div>
     </div>
     )

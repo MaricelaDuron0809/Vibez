@@ -209,3 +209,17 @@ h3 {
     align-items: center;
     padding-top: 3%;
 }
+
+.player-ctr {
+    position: fixed;
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.logout {
+    border: 1px solid red;
+    margin-left: 100%;
+    cursor: pointer;
+}

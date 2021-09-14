@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/logo.png'
+import Header from './Header/Header'
 import Welcome from './Header/Welcome';
 import PlaylistTitle from './Header/PlaylistTitle';
 import YourPlaylist from './Body/YourPlaylist';
@@ -12,9 +12,7 @@ import './styles.css'
 function VibezPlayer({ spotify }) {
     return (
         <div className="home-ctr"> 
-        <div className="header">
-           <img className="logo" src={logo} alt="website logo"/>  
-        </div>
+        <Header />
         <div className="body">
             <div className="sect-1">
                 <Welcome />
@@ -32,8 +30,8 @@ function VibezPlayer({ spotify }) {
                 <YourPlaylist />
             </div>
             </div>
-        <div className="play-footer">
-                Where player was
+        <div className="player-ctr">
+                <p>Where player is going</p>
             </div>
     </div>
     )

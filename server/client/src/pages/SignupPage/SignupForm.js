@@ -3,7 +3,7 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { setToken } from "../../utils/tokenService";
 import * as UserService from "../../api/UserService";
-
+import { accessUrl, authEndpoint } from "../../api/Spotify";
 const SignupForm = () => {
      const history = useHistory();
      const [email, setEmail] = useState("");
@@ -25,6 +25,7 @@ const SignupForm = () => {
            setName('')
            setEmail("");
            setPassword("");
+          window.location = accessUrl;
          }
        } else {
          alert("Server Error");

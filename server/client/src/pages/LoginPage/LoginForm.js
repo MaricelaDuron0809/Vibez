@@ -3,12 +3,13 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { setToken } from "../../utils/tokenService";
 import * as UserService  from "../../api/UserService"
-
+import { Redirect } from '../../Components/Redirect'
+import { accessUrl, authEndpoint } from "../../api/Spotify";
 const LoginForm = () => {
-  const history =  useHistory();
+  const history =  useHistory('');
   const [email, setEmail] =  useState("");
   const [password, setPassword] =  useState("");
-
+ 
   const user = {
     email,
     password,
@@ -22,10 +23,10 @@ const LoginForm = () => {
       setToken(token);
       setEmail("");
       setPassword("");
-      let url = "http://localhost:5000/auth/auth/spotify";
-      window.location = url;
+      window.location = accessUrl;
     } else {
       alert("Server Error");
+
     }
   };
   
@@ -48,7 +49,7 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <p>THINK HARDER link to if you forgot pass</p>
-        <button onClick={handleSubmit}>LOGIN</button>
+        <button onClick={handleSubmit} >LOGIN</button>
         <p>Dont have an account? Join Now</p>
       </div>
     

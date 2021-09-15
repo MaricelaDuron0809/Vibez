@@ -2,7 +2,7 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
 
 const clientId = "cb4e46622559403d9acdba7144bf4831";
-const redirectUri = "https://polar-bayou-95408.herokuapp.com/auth/";
+const redirectUri = "https://polar-bayou-95408.herokuapp.com/auth/auth/";
 const scopes = [
   "user-read-currently-playing",
   "user-read-recently-played",

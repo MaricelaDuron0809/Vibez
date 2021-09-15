@@ -42,6 +42,10 @@ passport.use(
   )
 );
 
+
+
+
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
@@ -90,7 +94,10 @@ app.get(
   "/auth/auth/spotify/callback",
   passport.authenticate("spotify", {
     failureRedirect: "/auth/auth/login",
-    scope: ["user-read-email", "user-read-private"],
+    scope: [
+      "user-read-email", 
+      "user-read-private",
+    ],
   }),
   function (req, res) {
     res.redirect("/auth");

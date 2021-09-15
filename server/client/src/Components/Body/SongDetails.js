@@ -1,6 +1,6 @@
 import React from 'react'
-import trashicon from '../images/trashicon.png'
-import demoalbum2 from '../images/demoalbum2.png'
+import trashicon from '../../images/trashicon.png'
+import demoalbum2 from '../../images/demoalbum2.png'
 
 const SongDetails = () => {
     return (

@@ -1,22 +1,51 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Switch, Route, BrowserRouter } from "react-router-dom"
 import './App.css';
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
+import VibezPlayer from './Components/VibezPlayer'
+import { useStateValue } from './state/StateProvider';
+import SpotifyWebApi from "spotify-web-api-js";
+import { getTokenFromResponse } from "./api/Spotify";
+import Routes from '../src/routes/'
 
-// import SomePage from '../src/pages/SomePage'
-import HomePage from '../src/pages/HomePage'
-
+const spotify = new SpotifyWebApi();
 
 function App() {
+  const [{ user, token }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    // Set token
+    const hash = getTokenFromResponse();
+    window.location.hash = "";
+    let _token = hash.access_token;
+
+    if (_token) {
+        
+        dispatch({
+            type: "SET_TOKEN",
+            token: _token
+        });
+        spotify.setAccessToken(_token);
+        spotify.getMe().then((user) => {
+            dispatch({
+                type: "SET_USER",
+                user: user,
+              });
+            }) 
+            console.log ("I have a token", token);
+              
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists
+        });
+      });
+    }
+  }, []);
+
+
   return (
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/auth/register' component={SignupPage} />
-          <Route exact path='/auth/login' component={LoginPage} />
-          <Route exact path='/auth' component={HomePage} />
-          {/* <Route exact path='/auth/test' component={SomePage} /> */}
-        </Switch>
+        <Routes />         
     </BrowserRouter>
   );
 }

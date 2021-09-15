@@ -5,7 +5,7 @@ let HOST;
 if (process.env.NODE_ENV !== "production") {
   HOST = "http://localhost:5000/auth";
 } else {
-  HOST = "https://polar-bayou-95408.herokuapp.com/";
+  HOST = "https://polar-bayou-95408.herokuapp.com/auth";
 }
 
 export default axios.create({

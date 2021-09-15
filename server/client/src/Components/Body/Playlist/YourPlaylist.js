@@ -4,7 +4,7 @@ import '../../styles.css'
 import PlaylistItem from './PlaylistItem';
 
 
-function YourPlaylist (props) {
+function YourPlaylist () {
 
     const [{ playlists }, dispatch] = useStateValue();
     console.log(playlists);

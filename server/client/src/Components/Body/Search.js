@@ -1,9 +1,12 @@
 import React from 'react'
-
+import './styles.css'
 const Search = () => {
     return (
-        <div>
-           <p>Search Songs, artist, albums and add to your playlist</p> 
+        <div className="search">
+           <input 
+                type="text"
+                placeholder="Search artists, Songs, and albums"
+                />
         </div>
     )
 }

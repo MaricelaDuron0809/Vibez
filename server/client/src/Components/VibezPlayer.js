@@ -13,7 +13,7 @@ import './styles.css'
 function VibezPlayer({ spotify }) {
     return (
         <div className="home-ctr"> 
-        <Header />
+        <Header spotify={spotify} />
         <div className="body">
             <div className="sect-1">
                 <Welcome />

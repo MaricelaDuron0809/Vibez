@@ -22,17 +22,6 @@ h3 {
     background-position: center center;
 }
 
-.logo {
-    height: 200px;
-    width: 350px;
-    padding: 0px;
-}
-.header {
-    display: flex;
-    align-items: center;
-
-}
-
 .body {
     display: flex;
     flex-direction: row;
@@ -51,8 +40,11 @@ h3 {
 }
 
 
-.sect-1, .sect-2 {
-    width: 100%;
+.sect-1 {
+    flex: 50%;
+}
+.sect-2 {
+    flex: 50%;
 }
 
 .create-playlist-btn { 
@@ -212,8 +204,3 @@ h3 {
 
 
 
-.logout {
-    border: 1px solid red;
-    margin-left: 100%;
-    cursor: pointer;
-}

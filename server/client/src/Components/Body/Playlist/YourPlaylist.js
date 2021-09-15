@@ -1,32 +1,29 @@
 import React, {useState} from 'react'
-import { useStateValue } from '../../../state/StateProvider';
 import './styles.css'
-import { getTokenFromResponse } from "../../../api/Spotify";
+
 
 const YourPlaylist = () => {
 
    const [selectedValue, setSelectedValue] = useState('');
 
     const data = [
-        {value: 1, name: 'A'},
-        {value: 2, name: 'B'},
-        {value: 3, name: 'C'}
+        {title: "Song Title 1", artist: 'Artist Name 1'},
+        {title: "Song Title 2", artist: 'Artist Name 2'},
+        {title: "Song Title 3", artist: 'Artist Name 3'}
     ]
     
     return (
         <div className="your-playlist">
     
-             <div>
                 {data.map((item, idx)=>
-                    <p key={idx}
-                        value={item.value}>
-                            {item.name}, {item.value}
-                            </p>)}
-            </div>
-    
+                    <h3 key={idx}
+                        value={item.title}>
+                            {item.title}
+                            </h3>
+                            )}
         </div>
     )
-                }
+}
 
 export default YourPlaylist
 

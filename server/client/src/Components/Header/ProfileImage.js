@@ -1,9 +1,9 @@
 import React from 'react'
 import demoprofile from '../../images/demoprofile.png'
-import { useStateValue } from '../../state/StateProvider';
 
-function ProfileImage({ spotify }) {
-    const [{ user }, dispatch] = useStateValue();
+
+function ProfileImage() {
+    
 
     return (
         <div className="profile-image">

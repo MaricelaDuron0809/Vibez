@@ -18,3 +18,17 @@ exports.requireLogin = (req, res, next) => {
         console.error('something went wrong');
     }
 }
+
+exports.isLoggedIn = (req, res, next) => {
+    try {
+        if (req.user) {
+            console.log(req.user);
+            res.status(200).json({user: req.user});
+            next()
+        } else {
+            return res.status(400).json({message: 'Not logged in'});
+        }
+    } catch (err) {
+        console.error('something went wrong');
+    }
+}

@@ -1,29 +1,36 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useStateValue } from '../../../state/StateProvider';
-import '../../styles.css'
-import PlaylistItem from './PlaylistItem';
+import './styles.css'
+import { getTokenFromResponse } from "../../../api/Spotify";
 
+const YourPlaylist = () => {
 
-function YourPlaylist () {
+   const [selectedValue, setSelectedValue] = useState('');
 
-    const [{ playlists }, dispatch] = useStateValue();
-    console.log(playlists);
-
+    const data = [
+        {value: 1, name: 'A'},
+        {value: 2, name: 'B'},
+        {value: 3, name: 'C'}
+    ]
+    
     return (
         <div className="your-playlist">
-            {playlists?.items?.map(
-                function(plist, index){ 
-                    return <PlaylistItem option={playlists.name}  />
-                }
-            )
-            }
-      {/* ))}; */}
+    
+             <div>
+                {data.map((item, idx)=>
+                    <p key={idx}
+                        value={item.value}>
+                            {item.name}, {item.value}
+                            </p>)}
             </div>
     
+        </div>
     )
-}
+                }
 
 export default YourPlaylist
+
+                
 
 {/* <div className="your-play-header">
     <h2>Your Playlist</h2>

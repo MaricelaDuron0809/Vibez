@@ -3,7 +3,6 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { setToken } from "../../utils/tokenService";
 import * as UserService  from "../../api/UserService"
-import { Redirect } from '../../Components/Redirect'
 import { accessUrl, authEndpoint } from "../../api/Spotify";
 const LoginForm = () => {
   const history =  useHistory('');

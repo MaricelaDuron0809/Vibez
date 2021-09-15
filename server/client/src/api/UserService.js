@@ -2,8 +2,6 @@ import BackEndCall from './BackEndCall';
 import * as tokenService from "../utils/tokenService";
 
 const create = (data, res) => {
-    let url = "http://localhost:5000/auth/auth/spotify";
-    window.location = url;
     return BackEndCall.post('/register', data);
 }
 const login = (data) => {

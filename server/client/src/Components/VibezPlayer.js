@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './Header/Header'
 import Welcome from './Header/Welcome';
 import PlaylistTitle from './Header/PlaylistTitle';
@@ -8,12 +8,14 @@ import SearchResults from './Body/SearchResults';
 import Search from './Body/Search';
 import PopularPlaylist from './Body/PopularPlaylist';
 import Footer from './Footer/Footer';
+import Credentials from '../api/Credentials';
 import './styles.css'
-import SpotifyWebApi from "spotify-web-api-js";
+import axios from 'axios'
 
-const spotify = new SpotifyWebApi();
 
-function VibezPlayer({ spotify }) {
+const VibezPlayer = () => {
+    const spotify = Credentials();
+
     return (
         <div className="home-ctr"> 
         <Header spotify={spotify} />

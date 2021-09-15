@@ -36,3 +36,30 @@ router.put("/auth", requireLogin, isLoggedIn, async (req, res) => {
     }
   );
 });
+
+router.delete("/auth", requireLogin, isLoggedIn, async (req, res) => {
+  Comment.findById(req.params.id).then((foundComment) => {
+    if (!foundComment)
+      return console.log("Error in deleting comment", foundComment);
+    const commentById = foundComment.comment.id(req.params.comment_id);
+    console.log(commentById);
+    commentById.remove();
+    foundComment.save();
+    return res.status(200).json({
+      message: "Successfully deleted comment",
+      data: commentById,
+    });
+  });
+});
+
+router.get("/auth", requireLogin, isLogged, async (req, res) => {
+    console.log("ALL COMMENTS", req.user);
+    Comment.find()
+    .populate('user')
+    .exec((err, populatedComments) => {
+        return res.status(200).json({
+            message: "Success",
+            data: populatedComments,
+        })
+    })
+})

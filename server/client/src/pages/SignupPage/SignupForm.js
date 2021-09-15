@@ -9,24 +9,23 @@ const SignupForm = () => {
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
      const [name, setName] = useState("");
+     
+     const newUser = {
+       name,
+       email, 
+       password,
+     };
 
      const handleSubmit = async () => {
-       const newUser = {
-         name,
-         email, 
-         password,
-       };
-
        const res = await UserService.create(newUser);
        if (res.data) {
-         if (res.data.token) {
            const token = res.data.token;
+          console.log("FROM REGISTERED login: ",  token);
            setToken(token);
            setName('')
            setEmail("");
            setPassword("");
-          window.location = accessUrl;
-         }
+           window.location = accessUrl;
        } else {
          alert("Server Error");
        }

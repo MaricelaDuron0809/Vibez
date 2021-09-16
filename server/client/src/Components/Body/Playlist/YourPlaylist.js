@@ -20,7 +20,10 @@ const YourPlaylist = () => {
     ]
     
     return (
+        <>
         <h1> stuff </h1>
+        <Comment />
+        </>
     )
 
     

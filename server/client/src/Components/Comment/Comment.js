@@ -9,6 +9,8 @@ function Comment() {
     const handleSubmit = async () => {
         const res = await user;
         if (res.data) {
+              const token = res.data.token;
+              console.log("FROM COMMENT FORM: ", token);
             setBody('')
         } else {
             alert('STOP, ERROR --- YOU CANT DO THAT')

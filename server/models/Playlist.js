@@ -5,10 +5,10 @@ const playlistSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  comment: [
-    commentSchema
-]
-  ,
+  comment: {
+   type: mongoose.Schema.Types.ObjectId,
+   ref: "Comment",
+  },
   playlistTitle: {
     type: String,
   },

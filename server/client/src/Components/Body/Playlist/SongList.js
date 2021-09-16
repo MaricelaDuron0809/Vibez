@@ -8,20 +8,20 @@ const SongList = props => {
     }    
 
     return (
-        <div>
-            <div className="list-group">
+        
+            <div className="search-song-list">
                 {
                     props.items.map((item, idx) => 
                     <button key={idx}
                         onClick={clicked}
-                        className="list-group-item list-group-item-action list-group-item-light"
+                        className="search-song-list"
                         id={item.track.id}>
                             
                             {item.track.name}
                     </button>)
                 }
             </div>
-        </div>
+        
         
 
     );

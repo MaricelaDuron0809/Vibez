@@ -4,53 +4,54 @@ import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
 import Comment from '../../Comment/Comment';
 import * as UserService from "../../../api/UserService"
-import { getTokenFromResponse } from "./spotify";
+import { getTokenFromResponse } from '../../../api/Spotify';
 
 
 
 
 
-const YourPlaylist = () => {
+
+const YourPlaylist = ({ spotify }) => {
 
     const [{ playlists }, dispatch] = useStateValue();
     console.log(playlists);
 
    
-    const posts = UserService.getPost()
+    const posts = UserService.getPost();
     console.log(posts)
     
-    return (
-      <div>
-          {playlists?.items?.map((playlist) => (
-        <SidebarOption option={playlist.name} />
-      ))}
-        {/* <h1> */}
-          {/* {
-          posts.map((post) => {
-            <ul>{post}</ul>;
-          })
-          } */}
-        {/* </h1> */}
-        <Comment />
-      </div>
-    );
+    
+        return (
+            <div>
+                {/* {playlists.items[0].name} */}
+                {/* <h1> */}
+                  {/* {
+                  posts.map((post) => {
+                    <ul>{post}</ul>;
+                  })
+                  } */}
+                {/* </h1> */}
+            </div>
+        )
+    
+}
 
     
-       
-
-//             </div>
-
-//                 {data.map((item, idx)=>
-//                     <h3 key={idx}
-//                         value={item.title}>
+export default YourPlaylist
+    
+    
+    
+    //             </div>
+    
+    //                 {data.map((item, idx)=>
+    //                     <h3 key={idx}
+    //                         value={item.title}>
 //                             {item.title}
 //                             </h3>
 //                             )}
 //         </div>
 //     )
 // }
-}
-export default YourPlaylist
 
                 
 

@@ -3,7 +3,7 @@ import SongList from './SongList';
 import SongDetail from './SongDetail';
 import SearchDrop from '../SearchDrop';
 import { Credentials } from '../../../api/Credentials';
-import './styles.css'
+import '../../styles.css'
 import axios from 'axios'
 
 
@@ -11,13 +11,6 @@ const PlaylistCtr = () => {
 
     const spotify = Credentials();  
 
-    console.log('RENDERING APP.JS');
-  
-    const data = [
-      {value: 1, name: 'A'},
-      {value: 2, name: 'B'},
-      {value: 3, name: 'C'},
-    ]; 
   
     const [token, setToken] = useState('');  
     const [genres, setGenres] = useState({selectedGenre: '', listOfGenresFromAPI: []});
@@ -113,10 +106,12 @@ const PlaylistCtr = () => {
 
     return (
         <div>
+          <h3> Search By Genre & Discover</h3> 
+          <h3>New Playlist</h3>
       <form onSubmit={buttonClicked}>        
           <SearchDrop label="Genre :" options={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
-          <SearchDrop label="Playlist :" options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
-          <div>
+          <SearchDrop options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
+          <div className="search">
             <button type='submit' className="">
               Search
             </button>

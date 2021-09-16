@@ -1,20 +1,15 @@
 import React from 'react'
 import Header from './Header/Header'
 import Welcome from './Header/Welcome';
-import PlaylistTitle from './Header/PlaylistTitle';
 import YourPlaylist from './Body/Playlist/YourPlaylist';
-import SongList from './Body/Playlist/SongList';
-import SongDetail from './Body/Playlist/SongDetail';
-import SongDetails from './Body/SongDetails';
-import SearchResults from './Body/SearchResults';
-import SearchDrop from './Body/SearchDrop';
 import PopularPlaylist from './Body/PopularPlaylist';
-import PlaylistCtr from './Body/Playlist/PlaylistCtr'
+import PlaylistCtr from '../Components/Body/Playlist/PlaylistCtr'
 import Footer from './Footer/Footer';
 import './styles.css'
 
 
-const VibezPlayer = () => {
+
+const VibezPlayer = ({ spotify }) => {
 
     return (
         <div className="home-ctr"> 
@@ -27,17 +22,13 @@ const VibezPlayer = () => {
 
                 <Welcome />   
                 <PlaylistCtr />
-                <PlaylistTitle />
-                <SongDetails />
-                <SongDetails />
-                <SongDetails />
-                <SongDetails />
+        
             </div>
 
 
             <div className="sect-2">
                 <PopularPlaylist />
-                <YourPlaylist />
+                <YourPlaylist spotify={spotify} />
             </div>
 
 

@@ -2,11 +2,7 @@
 import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
-import Comment from '../../Comment/Comment';
-import * as UserService from "../../../api/UserService"
-
-
-
+import Post from '../../Comment/Post';
 
 
 const YourPlaylist = () => {
@@ -19,19 +15,15 @@ const YourPlaylist = () => {
         {title: "Song Title 3", artist: 'Artist Name 3'}
     ]
 
-    const posts = UserService.getPost()
-    console.log(posts)
+   
+
     
     return (
       <div>
         <h1>
-          {/* {
-          posts.map((post) => {
-            <ul>{post}</ul>;
-          })
-          } */}
+         
         </h1>
-        <Comment />
+        <Post />
       </div>
     );
 

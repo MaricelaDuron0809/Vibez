@@ -116,9 +116,15 @@ const PlaylistCtr = () => {
               Search
             </button>
           </div>
-          <div>
+          <div className="search-results">
+
+            <div className="search-song-list">
             <SongList items={tracks.listOfTracksFromAPI} clicked={listboxClicked} />
+
+            </div>
+            <div>
             {trackDetail && <SongDetail {...trackDetail} /> }
+            </div>
           </div>        
       </form>
     </div>

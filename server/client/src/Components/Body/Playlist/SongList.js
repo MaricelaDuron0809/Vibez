@@ -9,7 +9,7 @@ const SongList = props => {
 
     return (
         
-            <div className="search-song-list">
+            <div >
                 {
                     props.items.map((item, idx) => 
                     <button key={idx}

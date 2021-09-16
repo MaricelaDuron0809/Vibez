@@ -15,8 +15,15 @@ const getUser = () => {
     return user;
 }
 
-const createComment = (data) => {
-    BackEndCall.post('/auth/profile', data);
+const createPost = (data) => {
+    console.log("CREATE COMMENT")
+    return BackEndCall.post('/auth/profile', data);
+}
+
+const getPost = () => {
+    console.log("GET COMMENT")
+    let user = getUser();
+    return BackEndCall.get('/auth/profile', user)
 }
 
 const logout = () => {
@@ -24,4 +31,4 @@ const logout = () => {
   }
 
 
-export { create, login, getUser, createComment, logout };
+export { create, login, getUser, createPost, getPost, logout };

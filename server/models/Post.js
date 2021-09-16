@@ -6,8 +6,9 @@ const commentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    body: {
+    comment: {
       type: String,
+      required: true,
     },
     like: {
       type: Boolean,

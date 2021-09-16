@@ -37,7 +37,7 @@ const VibezPlayer = () => {
 
             <div className="sect-2">
                 <PopularPlaylist />
-                <YourPlaylist />
+                {/* <YourPlaylist /> */}
             </div>
 
 

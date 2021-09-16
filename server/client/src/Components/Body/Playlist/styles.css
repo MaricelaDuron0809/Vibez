@@ -1,0 +1,11 @@
+.your-playlist {
+    padding-top: 5%;
+}
+
+.your-playlist-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 3%;
+}

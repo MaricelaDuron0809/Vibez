@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import { useForm } from '../../hooks/useForm'
 // import PostForm from './PostForm'
 import PropTypes from "prop-types";
-import * as UserService from "../../api/UserService";
+import * as PostService from "../../api/PostService";
 
 const Post = () => {
     
@@ -11,7 +11,7 @@ const Post = () => {
 
     const makePost = () => {
       console.log("Post: ", Post)
-      UserService.createPost({Post})
+      PostService.createPost({Post})
       setPost('')
     }
 

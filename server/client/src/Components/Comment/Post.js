@@ -4,40 +4,43 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import * as PostService from "../../api/PostService";
 import ShowPost from "./ShowPost"
+import Comment from "./Comment"
 
-const Post = () => {
-    
-   const [ post, setPost ] = useState([])
+function Post({ id, getPostAgain, title, author, body, postComments, user }) {
+    const [editedBody, setBody] = useState(body);
+    const [comments, setComments] = useState([]);
+     const [isEditing, setIsEditing] = useState(false);
 
-
-    const makePost = () => {
-      console.log("Post: ", post)
-      PostService.getAllPosts();
-      setPost('')
+    const handleEdit = async () => {
+      console.log('Editing Post')
+      setIsEditing(!isEditing);
+      if (isEditing) {
+        let editedPost = {
+          comment: comments,
+        }
+        // await PostService.update(id, editedPost)
+        getPostAgain();
+      }
     }
 
-    useEffect(() => {
-      //createPost()
-    }, [])
+    // const handleDelete = async () => {
+    //   await PostService.remove(id);
+    //   getPostAgain();
+    // }
+
+    const fetchComments = async () => {
+      let res = await PostService.getAllPosts(id);
+      if (res.status === 200) {
+        setComments(res.data)
+      }
+    }
+       useEffect(() => {
+        fetchComments(id);
+    }, []);
 
     return (
-      <div>
-        <ShowPost />
-          <label htmlFor="Post-input"></label>
-          <input
-            type="text"
-            id="Post-input"
-            name="body"
-            value={post}
-            onChange={(e) => setPost(e.target.value)}
-          />
-          <button type="button" onClick={makePost}>
-            Post
-          </button>
-        
-        {/* <PostForm user={user} body={body} /> */}
-      </div>
-    );
+      <Comment />
+    )
 }
 
-export default Post
+export default Post;

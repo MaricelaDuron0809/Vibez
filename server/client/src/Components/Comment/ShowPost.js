@@ -1,23 +1,24 @@
-import React from 'react'
-import * as PostService from "../../api/PostService"
-
-const posts = PostService.getAllPosts()
-
-const listPosts = () => {
-    return <li>{posts}</li>
-}
-
-const ShowPost = async () => {
+// import React from 'react'
+// import * as PostService from "../../api/PostService"
 
 
 
+// function ListPosts() {
+//     console.log("the posts", posts)
+//   return <li>{posts}</li>;
+// }
 
+// function List() {
 
-    return (
-        <div>
-            
-        </div>
-    )
-}
+//   const listItems = posts.map((post) => (
+//     <ListPosts key={post.id} value={post} />
+//   ));
+//   return (
+//     <div>
+//       <h2>React Map Example</h2>
+//       <ul> {listItems} </ul>
+//     </div>
+//   );
+// } 
 
-export default ShowPost
+// export default ListPosts

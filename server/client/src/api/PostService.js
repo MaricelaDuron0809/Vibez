@@ -3,7 +3,8 @@ import * as tokenService from '../utils/tokenService'
 
 const getAllPosts = () => {
     console.log('GET ALL POSTS');
-    return BackEndCall.get('/auth/profile')
+    let user = tokenService.getUserFromToken();
+    return BackEndCall.get('/auth/profile', user)
 }
 
 const createPost = (data) => {

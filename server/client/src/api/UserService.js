@@ -19,4 +19,9 @@ const createComment = (data) => {
     BackEndCall.post('/auth/profile', data);
 }
 
-export { create, login, getUser, createComment };
+const logout = () => {
+    localStorage.removeItem("token");
+  }
+
+
+export { create, login, getUser, createComment, logout };

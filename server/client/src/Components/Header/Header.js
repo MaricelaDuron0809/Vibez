@@ -3,6 +3,7 @@ import logo from '../../images/logo.png'
 import Logout from './Logout'
 import ProfileImage from './ProfileImage'
 import './styles.css'
+//import ProfilePage from "../../pages/ProfilePage"
 
 
 function Header({spotify}) {
@@ -13,6 +14,7 @@ function Header({spotify}) {
            <img className="logo" src={logo} alt="website logo"/>
            <ProfileImage spotify={spotify} />
            <Logout />
+           {/* <Profile Page /> */}
         </div>
     )
 }

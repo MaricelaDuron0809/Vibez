@@ -1,9 +1,9 @@
 import React from 'react'
 import demoprofile from '../../images/demoprofile.png'
-import { useStateValue } from '../../state/StateProvider';
+
 
 function ProfileImage() {
-    const [{ user }, dispatch] = useStateValue();
+    
 
     return (
         <div className="profile-image">
@@ -14,7 +14,7 @@ function ProfileImage() {
                 className="profile-avatar" 
                 />
             
-        {/* <h4>{user?.display_name}</h4> */}
+        {/* <h4>{user.display_name}</h4> */}
             
         </div>
     )

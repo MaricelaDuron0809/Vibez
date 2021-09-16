@@ -5,13 +5,13 @@ import ProfileImage from './ProfileImage'
 import './styles.css'
 
 
-function Header() {
+function Header({spotify}) {
     
     return (
         
         <div className="header">
            <img className="logo" src={logo} alt="website logo"/>
-           <ProfileImage />
+           <ProfileImage spotify={spotify} />
            <Logout />
         </div>
     )

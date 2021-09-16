@@ -23,16 +23,16 @@ const YourPlaylist = () => {
     console.log(posts)
     
     return (
-      <>
+      <div>
         <h1>
-          {
+          {/* {
           posts.map((post) => {
             <ul>{post}</ul>;
           })
-          }
+          } */}
         </h1>
         <Comment />
-      </>
+      </div>
     );
 
     

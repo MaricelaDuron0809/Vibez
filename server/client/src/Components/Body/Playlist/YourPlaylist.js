@@ -4,6 +4,7 @@ import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
 import Comment from '../../Comment/Comment';
 import * as UserService from "../../../api/UserService"
+import { getTokenFromResponse } from "./spotify";
 
 
 
@@ -11,26 +12,25 @@ import * as UserService from "../../../api/UserService"
 
 const YourPlaylist = () => {
 
-   const [selectedValue, setSelectedValue] = useState('');
+    const [{ playlists }, dispatch] = useStateValue();
+    console.log(playlists);
 
-    const data = [
-        {title: "Song Title 1", artist: 'Artist Name 1'},
-        {title: "Song Title 2", artist: 'Artist Name 2'},
-        {title: "Song Title 3", artist: 'Artist Name 3'}
-    ]
-
+   
     const posts = UserService.getPost()
     console.log(posts)
     
     return (
       <div>
-        <h1>
+          {playlists?.items?.map((playlist) => (
+        <SidebarOption option={playlist.name} />
+      ))}
+        {/* <h1> */}
           {/* {
           posts.map((post) => {
             <ul>{post}</ul>;
           })
           } */}
-        </h1>
+        {/* </h1> */}
         <Comment />
       </div>
     );

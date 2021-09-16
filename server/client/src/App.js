@@ -26,20 +26,6 @@ function App() {
         token: _token,
       });
 
-      spotify.getPlaylist("37i9dQZEVXcJZyENOWUFo7").then((response) =>
-        dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
-        })
-      );
-
-      spotify.getMyTopArtists().then((response) =>
-        dispatch({
-          type: "SET_TOP_ARTISTS",
-          top_artists: response,
-        })
-      );
-
       dispatch({
         type: "SET_SPOTIFY",
         spotify: spotify,

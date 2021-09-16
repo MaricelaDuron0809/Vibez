@@ -3,9 +3,10 @@ import React from 'react';
 const SongDetail = ({album, artists, name}) => {
 
     return (
-        <div>
+        <div className="song-details-ctr">
             <div>
                 <img 
+                    className="search-album-image"
                     src={album.images[0].url}
                     alt={name}>                    
                 </img>

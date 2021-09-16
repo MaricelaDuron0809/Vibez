@@ -1,48 +1,48 @@
 import React, { useState, useEffect } from 'react';
 //import { useForm } from '../../hooks/useForm'
-// import CommentForm from './CommentForm'
+// import PostForm from './PostForm'
 import PropTypes from "prop-types";
 import * as UserService from "../../api/UserService";
 
-const Comment = () => {
+const Post = () => {
     
-   const [ comment, setComment ] = useState([])
-   const user = UserService.getUser()
+   const [ Post, setPost ] = useState([])
 
-    function createComment() {
-      setComment(UserService.createComment());
+
+    const makePost = () => {
+      console.log("Post: ", Post)
+      UserService.createPost({Post})
+      setPost('')
     }
 
     useEffect(() => {
-      console.log("COMMENT: ", comment)
-      createComment()
+      //createPost()
     }, [])
 
     return (
       <div>
-        <label htmlFor="comment-input"></label>
-        <input
-          type="text"
-          id="comment-input"
-          name="body"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <button type="button" onClick={createComment}>
-          comment
-        </button>
-        {/* <CommentForm user={user} body={body} /> */}
+      
+          <label htmlFor="Post-input"></label>
+          <input
+            type="text"
+            id="Post-input"
+            name="body"
+            value={Post}
+            onChange={(e) => setPost(e.target.value)}
+          />
+          <button type="button" onClick={makePost}>
+            Post
+          </button>
+        
+        {/* <PostForm user={user} body={body} /> */}
       </div>
     );
 }
 
-Comment.defaultProps = {
-  buttonText: 'Comment',
+Post.defaultProps = {
+  buttonText: 'Post',
 }
 
-Comment.propTypes = {
-  buttonText: PropTypes.string,
-  onSubmitComment: PropTypes.func.isRequired,
-}
 
-export default Comment
+
+export default Post

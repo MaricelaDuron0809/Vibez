@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
 import Comment from '../../Comment/Comment';
-
+import * as UserService from "../../../api/UserService"
 
 
 
@@ -18,13 +18,22 @@ const YourPlaylist = () => {
         {title: "Song Title 2", artist: 'Artist Name 2'},
         {title: "Song Title 3", artist: 'Artist Name 3'}
     ]
+
+    const posts = UserService.getPost()
+    console.log(posts)
     
     return (
-        <>
-        <h1> stuff </h1>
+      <>
+        <h1>
+          {
+          posts.map((post) => {
+            <ul>{post}</ul>;
+          })
+          }
+        </h1>
         <Comment />
-        </>
-    )
+      </>
+    );
 
     
        

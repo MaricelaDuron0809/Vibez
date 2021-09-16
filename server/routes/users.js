@@ -86,4 +86,8 @@ router.get("/", requireLogin, async (req, res) => {
   }
 });
 
+// router.post("/auth/profile", async (req, res) => {
+//   console.log("hey auth/profile");
+// })
+
 module.exports = router;

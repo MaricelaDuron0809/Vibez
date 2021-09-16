@@ -3,23 +3,21 @@ const User = require("../models/user");
 const Comment = require("../models/comment");
 const Playlist = require("../models/Playlist");
 const { requireLogin, isLoggedIn } = require("../middleware/auth");
+const mongoose = require("mongoose");
 
-router.post("/auth/profile", requireLogin, isLoggedIn, async (req, res) => {
-  User.findById(req.params.id).then((foundUser) => {
-    if (!foundUser)
-      return res.status(404).json({ message: "No user found" });
-    foundUser.comment.push(req.body);
-    foundUser.save();
-    return res.status(201).json({
-      message: "Successfully made comment",
-      data: foundUser.comment,
-    });
-  });
-  try {
-  } catch (err) {
-    console.log(err);
-  }
+router.post("/profile", requireLogin, isLoggedIn, async (req, res) => {
+    req.body.comment = mongoose.Types.ObjectId;(req.body.comment)
+    Comment.create(req.body, (err, newComment) => {
+     newComment.populate('user');
+     console.log(newComment, "new Comment");
+     if (err) return console.log(err, "error in creating comment");
+        return res.send(201).json({
+            message: "Comment created successfully",
+            data: newComment
+        })
+    })  
 });
+
 
 router.put("/auth", requireLogin, isLoggedIn, async (req, res) => {
   Comment.findById(

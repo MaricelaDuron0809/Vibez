@@ -4,19 +4,13 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import * as UserService from "../../api/UserService";
 
-
-
 const Comment = () => {
     
    const [ comment, setComment ] = useState([])
    const user = UserService.getUser()
 
-    async function createComment() {
-      let res = await UserService.createComment();
-      console.log("response from create comment'", res.data);
-      if (res.status === 200) {
-        setComment(res.data.data.reverse());
-      }
+    function createComment() {
+      setComment(UserService.createComment());
     }
 
     useEffect(() => {

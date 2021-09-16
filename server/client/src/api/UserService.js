@@ -16,7 +16,7 @@ const getUser = () => {
 }
 
 const createComment = (data) => {
-    return BackEndCall.post('/auth/profile', data);
+    BackEndCall.post('/auth/profile', data);
 }
 
 export { create, login, getUser, createComment };

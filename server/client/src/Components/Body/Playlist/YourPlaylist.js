@@ -1,8 +1,7 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
-import PlaylistItem from './PlaylistItem';
 import Comment from '../../Comment/Comment';
 
 
@@ -21,6 +20,10 @@ const YourPlaylist = () => {
     ]
     
     return (
+        <h1> stuff </h1>
+    )
+
+    
        
 
 //             </div>
@@ -34,7 +37,7 @@ const YourPlaylist = () => {
 //         </div>
 //     )
 // }
-
+}
 export default YourPlaylist
 
                 

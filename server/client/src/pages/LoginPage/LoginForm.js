@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { setToken } from "../../utils/tokenService";
 import * as UserService  from "../../api/UserService"
 import { accessUrl, authEndpoint } from "../../api/Spotify";
+import { Link } from 'react-router-dom';
+
 
 const LoginForm = () => {
   const history =  useHistory('');
@@ -50,7 +52,7 @@ const LoginForm = () => {
         />
         <p>THINK HARDER link to if you forgot pass</p>
         <button onClick={handleSubmit} >LOGIN</button>
-        <p>Dont have an account? Join Now</p>
+        <p>Dont have an account? <Link to="/auth/register">Join Now</Link> </p>
       </div>
     
   );

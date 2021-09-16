@@ -26,4 +26,9 @@ const getPost = () => {
     return BackEndCall.get('/auth/profile', user)
 }
 
-export { create, login, getUser, createPost, getPost };
+const logout = () => {
+    localStorage.removeItem("token");
+  }
+
+
+export { create, login, getUser, createPost, getPost, logout };

@@ -29,7 +29,7 @@ export default class Logout extends Component {
         const { navigate } = this.state;
 
         if (navigate) {
-            return <Redirect to="/login" push={true} />;
+            return <Redirect to="/auth/login" push={true} />;
         }
         return <button onClick={() => this.handleLogout()}>LOGOUT</button>
     }

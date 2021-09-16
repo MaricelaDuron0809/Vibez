@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import { setToken } from "../../utils/tokenService";
 import * as UserService from "../../api/UserService";
 import { accessUrl, authEndpoint } from "../../api/Spotify";
+import { Link } from 'react-router-dom';
+
+
 const SignupForm = () => {
      const history = useHistory();
      const [email, setEmail] = useState("");
@@ -56,7 +59,7 @@ const SignupForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 <button className="signup-button" onClick={handleSubmit}>SIGN UP</button>
-            <p>Already have an account? Sign in</p>
+            <p>Already have an account? <Link to="/auth/login">Sign In</Link> </p>
         </div>
       
     )

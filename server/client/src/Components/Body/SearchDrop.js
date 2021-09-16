@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './styles.css'
+import '../styles.css'
 
 const SearchDrop = props => {
 
@@ -9,13 +9,14 @@ const SearchDrop = props => {
     }    
 
     return (
-        <div className="col-sm-6 form-group row px-0">     
-            <label className="form-label col-sm-2">{props.label}</label>       
-            <select value={props.selectedValue} onChange={dropdownChanged} className="form-control form-control-sm col-sm-10">
-                <option key={0}>Select...</option>
+        
+        <div className="search-dropdown">     
+            <select value={props.selectedValue} onChange={dropdownChanged} className="">
+                <option key={0}>Select..</option>
                 {props.options.map((item, idx) => <option key={idx + 1} value={item.id}>{item.name}</option>)}
             </select>            
         </div>
+    
     );
 }
 

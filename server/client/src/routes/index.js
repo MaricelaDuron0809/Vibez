@@ -10,7 +10,6 @@ const Routes = () => (
     <Route exact path="/auth/register" component={SignupPage} />
     <Route exact path="/auth/login" component={LoginPage} />
     <Route exact path="/auth/auth/" component={VibezPlayer} />
-    01
     <Route exact path="/auth/auth/profile/" component={ProfilePage} />
   </Switch>
 );

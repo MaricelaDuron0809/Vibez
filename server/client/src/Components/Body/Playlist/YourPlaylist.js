@@ -2,55 +2,56 @@
 import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
-import Comment from '../../Comment/Comment';
+import Comment from '../../Post/PostForm';
 import * as UserService from "../../../api/UserService"
+import { getTokenFromResponse } from '../../../api/Spotify';
 
 
 
 
 
-const YourPlaylist = () => {
 
-   const [selectedValue, setSelectedValue] = useState('');
+const YourPlaylist = ({ spotify }) => {
 
-    const data = [
-        {title: "Song Title 1", artist: 'Artist Name 1'},
-        {title: "Song Title 2", artist: 'Artist Name 2'},
-        {title: "Song Title 3", artist: 'Artist Name 3'}
-    ]
+    const [{ playlists }, dispatch] = useStateValue();
+    console.log(playlists);
 
-    const posts = UserService.getPost()
+   
+    const posts = UserService.getPost();
     console.log(posts)
     
-    return (
-      <>
-        <h1>
-          {
-          posts.map((post) => {
-            <ul>{post}</ul>;
-          })
-          }
-        </h1>
-        <Comment />
-      </>
-    );
+    
+        return (
+            <div>
+                {/* {playlists.items[0].name} */}
+                {/* <h1> */}
+                  {/* {
+                  posts.map((post) => {
+                    <ul>{post}</ul>;
+                  })
+                  } */}
+                {/* </h1> */}
+            </div>
+        )
+    
+}
 
     
-       
-
-//             </div>
-
-//                 {data.map((item, idx)=>
-//                     <h3 key={idx}
-//                         value={item.title}>
+export default YourPlaylist
+    
+    
+    
+    //             </div>
+    
+    //                 {data.map((item, idx)=>
+    //                     <h3 key={idx}
+    //                         value={item.title}>
 //                             {item.title}
 //                             </h3>
 //                             )}
 //         </div>
 //     )
 // }
-}
-export default YourPlaylist
 
                 
 

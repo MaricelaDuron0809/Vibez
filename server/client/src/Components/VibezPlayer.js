@@ -4,6 +4,7 @@ import Welcome from './Header/Welcome';
 import YourPlaylist from './Body/Playlist/YourPlaylist';
 import PopularPlaylist from './Body/PopularPlaylist';
 import PlaylistCtr from '../Components/Body/Playlist/PlaylistCtr'
+import Comment from '../Components/Comment/Comment'
 import Footer from './Footer/Footer';
 import './styles.css'
 
@@ -28,7 +29,7 @@ const VibezPlayer = ({ spotify }) => {
 
             <div className="sect-2">
                 <PopularPlaylist />
-                <YourPlaylist spotify={spotify} />
+                <Comment />
             </div>
 
 

@@ -107,7 +107,7 @@ const PlaylistCtr = () => {
     return (
         <div>
           <h3> Search By Genre & Discover</h3> 
-          <h3>New Playlist</h3>
+          <h3>New Playlists</h3>
       <form onSubmit={buttonClicked}>        
           <SearchDrop label="Genre :" options={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
           <SearchDrop options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />

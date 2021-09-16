@@ -43,9 +43,6 @@ const app = express();
 // );
 
 
-
-
-
 const PORT = process.env.PORT || 5000;
 
 mongoose
@@ -73,7 +70,8 @@ app.use(express.static("public"));
 //   next();
 // });
 
-app.use("/auth", require("./routes/index"));
+app.use('/auth', require("./routes/users"));
+app.use("/", routes);
 
 //Serve build
 if (process.env.NODE_ENV === "production") {
@@ -105,4 +103,4 @@ if (process.env.NODE_ENV === "production") {
 // );
 // app.get
   
-app.listen(PORT, () => console.log("Server is running"));
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));

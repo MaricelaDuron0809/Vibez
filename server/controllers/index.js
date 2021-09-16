@@ -1,3 +1,3 @@
-// module.exports = {
-//     spotify: require('./spotify')
-// }
+module.exports = {
+   posts: require("./posts"),
+}

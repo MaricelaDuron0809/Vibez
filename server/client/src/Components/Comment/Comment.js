@@ -1,33 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+//import { useForm } from '../../hooks/useForm'
+// import CommentForm from './CommentForm'
+import PropTypes from "prop-types";
 import * as UserService from "../../api/UserService";
 
-const user = UserService.getUser()
 
-function Comment() {
-    const [body, setBody] = useState('')
 
-    const handleSubmit = async () => {
-        const res = await user;
-        if (res.data) {
-              const token = res.data.token;
-              console.log("FROM COMMENT FORM: ", token);
-            setBody('')
-        } else {
-            alert('STOP, ERROR --- YOU CANT DO THAT')
-        }
+const Comment = () => {
+    
+   const [ comment, setComment ] = useState([])
+   const user = UserService.getUser()
 
+    async function createComment() {
+      let res = await UserService.createComment();
+      console.log("response from create comment'", res.data);
+      if (res.status === 200) {
+        setComment(res.data.data.reverse());
+      }
     }
+
+    useEffect(() => {
+      console.log("COMMENT: ", comment)
+      createComment()
+    }, [])
+
     return (
       <div>
+        <label htmlFor="comment-input"></label>
         <input
           type="text"
-          className="comment-form"
-          onChange={(e) => setBody(e.target.value)}
-          value={body}
+          id="comment-input"
+          name="body"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
         />
-        <button onClick={handleSubmit}>LOGIN</button>
+        <button type="button" onClick={createComment}>
+          comment
+        </button>
+        {/* <CommentForm user={user} body={body} /> */}
       </div>
     );
+}
+
+Comment.defaultProps = {
+  buttonText: 'Comment',
+}
+
+Comment.propTypes = {
+  buttonText: PropTypes.string,
+  onSubmitComment: PropTypes.func.isRequired,
 }
 
 export default Comment

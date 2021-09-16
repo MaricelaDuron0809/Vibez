@@ -1,6 +1,12 @@
 
-import React, {useState} from 'react'
-import './styles.css'
+import React from 'react'
+import { useStateValue } from '../../../state/StateProvider';
+import '../../styles.css'
+import PlaylistItem from './PlaylistItem';
+import Comment from '../../Comment/Comment';
+
+
+
 
 
 
@@ -15,17 +21,19 @@ const YourPlaylist = () => {
     ]
     
     return (
-        <div className="your-playlist">
-    
-                {data.map((item, idx)=>
-                    <h3 key={idx}
-                        value={item.title}>
-                            {item.title}
-                            </h3>
-                            )}
-        </div>
-    )
-}
+       
+
+//             </div>
+
+//                 {data.map((item, idx)=>
+//                     <h3 key={idx}
+//                         value={item.title}>
+//                             {item.title}
+//                             </h3>
+//                             )}
+//         </div>
+//     )
+// }
 
 export default YourPlaylist
 

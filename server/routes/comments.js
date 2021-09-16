@@ -2,17 +2,17 @@ const router = require("express").Router();
 const User = require("../models/user");
 const Comment = require("../models/comment");
 const Playlist = require("../models/Playlist");
-const { requireLogin } = require("../middleware/auth");
+const { requireLogin, isLoggedIn } = require("../middleware/auth");
 
-router.post("/auth", requireLogin, isLoggedIn, async (req, res) => {
-  Playlist.findById(req.params.id).then((foundPlaylist) => {
-    if (!foundPlaylist)
-      return res.status(404).json({ message: "Playlist not found" });
-    foundPlaylist.comment.push(req.body);
-    foundPlaylist.save();
+router.post("/auth/profile", requireLogin, isLoggedIn, async (req, res) => {
+  User.findById(req.params.id).then((foundUser) => {
+    if (!foundUser)
+      return res.status(404).json({ message: "No user found" });
+    foundUser.comment.push(req.body);
+    foundUser.save();
     return res.status(201).json({
       message: "Successfully made comment",
-      data: foundPlaylist.comment,
+      data: foundUser.comment,
     });
   });
   try {
@@ -39,9 +39,10 @@ router.put("/auth", requireLogin, isLoggedIn, async (req, res) => {
 
 router.delete("/auth", requireLogin, isLoggedIn, async (req, res) => {
   Comment.findById(req.params.id).then((foundComment) => {
+      console.log(foundComment);
     if (!foundComment)
-      return console.log("Error in deleting comment", foundComment);
-    const commentById = foundComment.comment.id(req.params.comment_id);
+    return console.log("Error in deleting comment");
+    const commentById = foundComment.comment._id(req.params.comment_id);
     console.log(commentById);
     commentById.remove();
     foundComment.save();
@@ -52,7 +53,7 @@ router.delete("/auth", requireLogin, isLoggedIn, async (req, res) => {
   });
 });
 
-router.get("/auth", requireLogin, isLogged, async (req, res) => {
+router.get("/auth", requireLogin, isLoggedIn, async (req, res) => {
     console.log("ALL COMMENTS", req.user);
     Comment.find()
     .populate('user')
@@ -63,3 +64,5 @@ router.get("/auth", requireLogin, isLogged, async (req, res) => {
         })
     })
 })
+
+module.exports = router;

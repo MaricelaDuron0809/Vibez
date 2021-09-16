@@ -17,4 +17,13 @@ const getUser = () => {
 
 
 
+<<<<<<< HEAD
 export { create, login, getUser };
+=======
+const logout = () => {
+    localStorage.removeItem("token");
+  }
+
+
+export { create, login, getUser, createPost, getPost, logout };
+>>>>>>> main

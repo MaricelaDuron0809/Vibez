@@ -20,10 +20,14 @@ const Post = () => {
     }, [])
 
     return (
-      <div>
-      
+      <div className="post-form-ctr">
+      <div className="form-field-ctr">
+        <h3>Create A Post about Your </h3>
+        <h3>New Vibez Playlist!</h3>
+        <form>
           <label htmlFor="Post-input"></label>
           <input
+            className="post-input"
             type="text"
             id="Post-input"
             name="body"
@@ -33,8 +37,9 @@ const Post = () => {
           <button type="button" onClick={makePost}>
             Post
           </button>
-        
+        </form>
         {/* <PostForm user={user} body={body} /> */}
+        </div>
       </div>
     );
 }

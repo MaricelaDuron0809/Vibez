@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Switch, Route, BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import './App.css';
 import VibezPlayer from './Components/VibezPlayer'
 import { useStateValue } from './state/StateProvider';
@@ -10,7 +10,7 @@ import Routes from '../src/routes/'
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useStateValue();
+  const [{ token }, dispatch] = useStateValue();
 
   useEffect(() => {
     // Set token
@@ -19,29 +19,33 @@ function App() {
     let _token = hash.access_token;
 
     if (_token) {
-        
+      spotify.setAccessToken(_token);
+
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
+
+      dispatch({
+        type: "SET_SPOTIFY",
+        spotify: spotify,
+      });
+
+      spotify.getMe().then((user) => {
         dispatch({
-            type: "SET_TOKEN",
-            token: _token
+          type: "SET_USER",
+          user,
         });
-        spotify.setAccessToken(_token);
-        spotify.getMe().then((user) => {
-            dispatch({
-                type: "SET_USER",
-                user: user,
-              });
-            }) 
-            console.log ("I have a token", token);
-              
+      });
+
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: "SET_PLAYLISTS",
-          playlists
+          playlists,
         });
       });
     }
-  }, []);
-
+  }, [token, dispatch]);
 
   return (
       <BrowserRouter>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
 import PlaylistItem from './PlaylistItem';
-//import Comment from '../../Comment'
+import Comment from '../../Comment/Comment';
 
 function YourPlaylist () {
 
@@ -19,6 +19,7 @@ function YourPlaylist () {
             }
       {/* ))}; */}
       {/*render comment component*/}
+      <Comment />
             </div>
     
     )

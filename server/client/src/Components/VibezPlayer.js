@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header/Header'
 import Welcome from './Header/Welcome';
 import PlaylistTitle from './Header/PlaylistTitle';
-// import YourPlaylist from './Body/Playlist/YourPlaylist';
+import YourPlaylist from './Body/Playlist/YourPlaylist';
 import SongDetails from './Body/SongDetails';
 import SearchResults from './Body/SearchResults';
 import Search from './Body/Search';
@@ -28,7 +28,7 @@ function VibezPlayer({ spotify }) {
             </div>
             <div className="sect-2">
                 <PopularPlaylist />
-                {/* <YourPlaylist /> */}
+                <YourPlaylist />
             </div>
             </div>
         <div>

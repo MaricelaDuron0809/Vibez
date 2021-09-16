@@ -73,7 +73,7 @@ app.use(express.static("public"));
 //   next();
 // });
 
-app.use("/auth", require("./routes/users"));
+app.use("/auth", require("./routes/index"));
 
 //Serve build
 if (process.env.NODE_ENV === "production") {

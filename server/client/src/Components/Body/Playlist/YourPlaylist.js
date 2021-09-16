@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
-import Comment from '../../Comment/Comment';
+import Comment from '../../Post/PostForm';
 import * as UserService from "../../../api/UserService"
 import { getTokenFromResponse } from '../../../api/Spotify';
 

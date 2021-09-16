@@ -4,7 +4,9 @@ import Welcome from './Header/Welcome';
 import YourPlaylist from './Body/Playlist/YourPlaylist';
 import PopularPlaylist from './Body/PopularPlaylist';
 import PlaylistCtr from '../Components/Body/Playlist/PlaylistCtr'
-import Comment from '../Components/Comment/Comment'
+import PostForm from './Post/PostForm'
+import Post from './Post/Post'
+import Comment from './Comment 2/index'
 import Footer from './Footer/Footer';
 import './styles.css'
 
@@ -29,6 +31,8 @@ const VibezPlayer = ({ spotify }) => {
 
             <div className="sect-2">
                 <PopularPlaylist />
+                <PostForm />
+                <Post />
                 <Comment />
             </div>
 

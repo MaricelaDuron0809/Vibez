@@ -1,15 +1,41 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 
-const CommentForm = () => {
+const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
+
+  const [body, setBody] = useState("");
+
+  const handleSubmit = async () => {
+      let newComment = { author: user._id, body, id };
+      // console.log(newComment);
+      // const res = await PostService.createComment(id, newComment);
+
+      // if (res.status === 201) {
+      //     setBody("");
+      //     getCommentsAgain(id);
+      //     getPostsAgain();
+      // } else {
+      //     alert("Server Error");
+      // }
+  };
+
 
   return (
-
-    
+    <div className="comment-form-inputs">
+    <input
+        onChange={(e) => setBody(e.target.value)}
+        value={body}
+        type="text"
+        name="body"
+        placeholder="COMMENT HERE"
+    />
+    <button onClick={handleSubmit}>Add Comment +</button>
+</div>
   );
-}
+};
 
+export default CommentForm
 
 
 

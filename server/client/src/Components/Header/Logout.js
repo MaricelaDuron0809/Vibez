@@ -31,6 +31,6 @@ export default class Logout extends Component {
         if (navigate) {
             return <Redirect to="/auth/login" push={true} />;
         }
-        return <button onClick={() => this.handleLogout()}>LOGOUT</button>
+        return <button className="logout-button" onClick={() => this.handleLogout()}>LOGOUT</button>
     }
 }

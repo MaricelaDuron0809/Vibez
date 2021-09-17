@@ -12,7 +12,7 @@ function Header({spotify}) {
         
         <div className="header">
            <img className="logo" src={logo} alt="website logo"/>
-           <ProfileImage spotify={spotify} />
+           {/* <ProfileImage spotify={spotify} /> */}
            <Logout />
            {/* <Profile Page /> */}
         </div>

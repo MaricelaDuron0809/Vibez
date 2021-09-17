@@ -13,6 +13,8 @@ const index = (req, res) => {
     });
   }
 
+  
+
 
 const create = (req, res) => {
   console.log("Post Create");

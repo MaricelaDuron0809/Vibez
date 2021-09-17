@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/user");
+const { users } = require("../controllers")
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { requireLogin } = require("../middleware/auth");
@@ -89,5 +90,7 @@ router.get("/", requireLogin, async (req, res) => {
 // router.post("/auth/profile", async (req, res) => {
 //   console.log("hey auth/profile");
 // })
+router.get("/", users.index);
+router.post("/", users.create);
 
 module.exports = router;

@@ -2,7 +2,7 @@
 const router = require("express").Router();
 
 router.use("/users", require("./users"));
-router.use("/auth/auth/profile", require("./post"));
+router.use("/posts", require("./post"));
 
 module.exports = router;
 

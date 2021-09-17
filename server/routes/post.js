@@ -1,11 +1,52 @@
 const router = require("express").Router();
-const postCntrl = require('../controllers/posts')
+const { posts } = require("../controllers");
 const { requireLogin, isLoggedIn } = require("../middleware/auth");
 
-router.get('/', postCntrl.index)
-router.post('/', postCntrl.create)
+
+//Post Routes
+router.get("/", posts.index);
+router.get("/:id", posts.show);
+router.post("/", posts.create);
+router.put("/:id", posts.update);
+router.delete("/:id", posts.destroy);
+
+
+//Comment Routes
+router.get("/:id/comments", posts.showComments);
+router.post("/:id/comment", posts.createComment);
+router.put("/:id/comment/:commentId", posts.updateComment);
+router.delete("/:id/comment/:commentId", posts.destroyComment);
 
 module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // router.put("/auth", requireLogin, isLoggedIn, async (req, res) => {
@@ -51,5 +92,3 @@ module.exports = router
 //         })
 //     })
 // })
-
-// module.exports = router;

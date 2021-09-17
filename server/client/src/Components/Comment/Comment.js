@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../styles.css";
-//import * as PostService from "../../api/PostService";
+import * as PostService from "../../api/PostService";
 import { func, string } from "prop-types";
-
 
 const Comment = ({ id, author, body, getCommentsAgain, commentId }) => {
     console.log(author, "IN COMMENTS");
@@ -19,14 +18,14 @@ const Comment = ({ id, author, body, getCommentsAgain, commentId }) => {
                 author: editedAuthor,
                 body: editedBody,
             };
-            // await PostService.updateComment(id, commentId, editedPost);
-            // getCommentsAgain(id);
+            await PostService.updateComment(id, commentId, editedPost);
+            getCommentsAgain(id);
         }
     };
 
     const handleDelete = async () => {
-        // await PostService.removeComment(id, commentId);
-        // getCommentsAgain(id);
+        await PostService.removeComment(id, commentId);
+        getCommentsAgain(id);
     };
 
     return (
@@ -71,4 +70,4 @@ Comment.propTypes = {
     getPostsAgain: func,
 };
 
-// export default Comment;
+export default Comment;

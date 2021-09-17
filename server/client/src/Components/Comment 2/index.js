@@ -71,4 +71,4 @@ Comment.propTypes = {
     getPostsAgain: func,
 };
 
-export default Comment;
+// export default Comment;

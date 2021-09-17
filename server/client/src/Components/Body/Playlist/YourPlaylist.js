@@ -2,42 +2,14 @@
 import React, { useState } from 'react'
 import { useStateValue } from '../../../state/StateProvider';
 import '../../styles.css'
-<<<<<<< HEAD
-import Post from '../../Comment/Post';
-=======
-import Comment from '../../Post/PostForm';
-import * as UserService from "../../../api/UserService"
-import { getTokenFromResponse } from '../../../api/Spotify';
-
-
-
->>>>>>> main
-
-
+// import Comment from '../../Post/PostForm';
+// import * as UserService from "../../../api/UserService"
+// import { getTokenFromResponse } from '../../../api/Spotify';
 
 const YourPlaylist = ({ spotify }) => {
 
     const [{ playlists }, dispatch] = useStateValue();
     console.log(playlists);
-
-   
-<<<<<<< HEAD
-
-    
-    return (
-      <div>
-        <h1>
-         
-        </h1>
-        <Post />
-      </div>
-    );
-
-=======
-    const posts = UserService.getPost();
-    console.log(posts)
-    
->>>>>>> main
     
         return (
             <div>
@@ -50,28 +22,9 @@ const YourPlaylist = ({ spotify }) => {
                   } */}
                 {/* </h1> */}
             </div>
-        )
-    
+        )   
 }
-
-    
 export default YourPlaylist
-    
-    
-    
-    //             </div>
-    
-    //                 {data.map((item, idx)=>
-    //                     <h3 key={idx}
-    //                         value={item.title}>
-//                             {item.title}
-//                             </h3>
-//                             )}
-//         </div>
-//     )
-// }
-
-                
 
 {/* <div className="your-play-header">
     <h2>Your Playlist</h2>

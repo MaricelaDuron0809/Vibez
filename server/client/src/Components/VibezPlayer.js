@@ -6,7 +6,7 @@ import PopularPlaylist from './Body/PopularPlaylist';
 import PlaylistCtr from '../Components/Body/Playlist/PlaylistCtr'
 import PostForm from './Post/PostForm'
 import Post from './Post/Post'
-import Comment from './Comment 2/index'
+// import Comment from './Comment 2/index'
 import Footer from './Footer/Footer';
 import './styles.css'
 
@@ -33,7 +33,7 @@ const VibezPlayer = ({ spotify }) => {
                 <PopularPlaylist />
                 <PostForm />
                 <Post />
-                <Comment />
+                {/* <Comment /> */}
             </div>
 
 

@@ -4,6 +4,7 @@ import * as tokenService from "../utils/tokenService";
 const create = (data, res) => {
     return BackEndCall.post('/register', data);
 }
+
 const login = (data) => {
     let token = tokenService.getToken();
     return BackEndCall.post('/login', data, token);
@@ -15,15 +16,13 @@ const getUser = () => {
     return user;
 }
 
-
-
-<<<<<<< HEAD
-export { create, login, getUser };
-=======
 const logout = () => {
     localStorage.removeItem("token");
   }
 
+//   const hitMe = () => {
+//      return BackEndCall.post('/auth/profile')
+//   }
 
-export { create, login, getUser, createPost, getPost, logout };
->>>>>>> main
+
+export { create, login, getUser, logout };

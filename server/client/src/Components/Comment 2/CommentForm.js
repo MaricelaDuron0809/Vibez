@@ -35,7 +35,7 @@ const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
   );
 };
 
-export default CommentForm
+// export default CommentForm
 
 
 

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const postCntrl = require('../controllers/posts')
 const { requireLogin, isLoggedIn } = require("../middleware/auth");
 
-router.get('/profile', postCntrl.index)
+router.get('/', postCntrl.index)
 router.post('/', postCntrl.create)
 
 module.exports = router

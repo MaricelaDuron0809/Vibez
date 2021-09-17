@@ -11,7 +11,7 @@ const Post = () => {
 
     const makePost = () => {
       console.log("Post: ", Post)
-      PostService.createPost({Post})
+      PostService.createPost({Post: Post})
       setPost('')
     }
 

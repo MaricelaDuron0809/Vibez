@@ -21,13 +21,13 @@ const create = (req, res) => {
     const testPost = { comment: req.body.Post }
     Post.create(testPost, (err, savedPost) => {
       console.log("Post", savedPost);
-      savedPost.populate("../models/Post");
+      savedPost.populate("Post");
       console.log(savedPost, "SAVED POST IN CREATE POST");
       if (err) return console.log("Error in Posts#create:", err);
-      // return res.status(201).json({
-      //   message: "Success",
-      //   data: savedPost,
-      // });
+      return res.status(201).json({
+        message: "Success",
+        data: savedPost,
+      });
     });
   } catch (error) {
     console.log("Error in Posts", error)

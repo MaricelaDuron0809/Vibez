@@ -28,7 +28,7 @@ mongoose
 
 
   app.use('/auth', require("./routes/users"));
-  app.use("/api", routes);
+  app.use("/auth", routes);
   
   //This is to catch anything that's trying to hit an api route that isn't made
   app.all("/api/*", function (req, res, next) {

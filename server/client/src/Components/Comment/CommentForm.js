@@ -1,41 +1,45 @@
-import React, {useState} from "react";
-
-
+import React, { useState } from "react";
+import "../styles.css";
+import * as PostService from "../../api/PostService";
+import { func, string } from "prop-types";
 
 const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
+    const [body, setBody] = useState("");
+    const handleSubmit = async () => {
+        let newComment = { author: user._id, body, id };
+        // console.log(newComment);
+        const res = await PostService.createComment(id, newComment);
 
-  const [body, setBody] = useState("");
+        if (res.status === 201) {
+            setBody("");
+            getCommentsAgain(id);
+            getPostsAgain();
+        } else {
+            alert("Server Error");
+        }
+    };
 
-  const handleSubmit = async () => {
-      let newComment = { author: user._id, body, id };
-      // console.log(newComment);
-      // const res = await PostService.createComment(id, newComment);
-
-      // if (res.status === 201) {
-      //     setBody("");
-      //     getCommentsAgain(id);
-      //     getPostsAgain();
-      // } else {
-      //     alert("Server Error");
-      // }
-  };
-
-
-  return (
-    <div className="comment-form-inputs">
-    <input
-        onChange={(e) => setBody(e.target.value)}
-        value={body}
-        type="text"
-        name="body"
-        placeholder="COMMENT HERE"
-    />
-    <button onClick={handleSubmit}>Add Comment +</button>
-</div>
-  );
+    return (
+        <div className="CommentForm-inputs">
+            <input
+                onChange={(e) => setBody(e.target.value)}
+                value={body}
+                type="text"
+                name="body"
+                placeholder="BODY GOES HERE"
+            />
+            <button onClick={handleSubmit}>Add Comment +</button>
+        </div>
+    );
 };
 
-// export default CommentForm
+CommentForm.protoTypes = {
+    id: string.isRequired,
+    getPostsAgain: func,
+};
+
+export default CommentForm;
+
 
 
 

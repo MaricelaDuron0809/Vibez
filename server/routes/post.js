@@ -12,10 +12,10 @@ router.delete("/:id", posts.destroy);
 
 
 //Comment Routes
-//router.get("/:id/comments", posts.showComments);
-// router.post("/:id/comment", posts.createComment);
-// router.put("/:id/comment/:commentId", posts.updateComment);
-// router.delete("/:id/comment/:commentId", posts.destroyComment);
+router.get("/:id/comments", posts.showComments);
+router.post("/:id/comment", posts.createComment);
+router.put("/:id/comment/:commentId", posts.updateComment);
+router.delete("/:id/comment/:commentId", posts.destroyComment);
 
 module.exports = router
 

@@ -1,31 +1,41 @@
 import BackEndCall from "./BackEndCall";
 import * as tokenService from '../utils/tokenService'
 
-const getAllPosts = () => {
-    console.log('GET ALL POSTS');
-    let user = tokenService.getUserFromToken();
-    return BackEndCall.get('/auth/profile', user)
+const getAll = () => {
+  return BackEndCall.get("/posts");
+};
+
+const get = (id) => {
+  return BackEndCall.get(`/posts/${id}`);
+};
+
+const getAllComments = (id) => {
+  return BackEndCall.get(`/posts/${id}/comments`);
 }
 
-const createPost = (data) => {
-  console.log("CREATE COMMENT", data);
-
-  return BackEndCall.post("/auth/profile", data);
+const create = (data) => {
+  return BackEndCall.post("/posts", data);
 };
 
-const getPost = (id) => {
-  console.log("GET COMMENT");
-  let user = tokenService.getUserFromToken();
-  return BackEndCall.get(`/auth/profile/${id}`, user);
-};
-
-
-const remove = (id) => {
-  return BackEndCall.delete(`/auth/profile/${id}`);
-};
+const createComment = (id, data) => {
+  return BackEndCall.post(`/posts/${id}/comment`, data);
+}
 
 const update = (id, data) => {
-  return BackEndCall.put(`/auth/profile/${id}`, data);
+  return BackEndCall.put(`/posts/${id}`, data);
 };
 
-export { getAllPosts, createPost, getPost, remove, update }
+const updateComment = (id, commentId, data) => {
+  return BackEndCall.put(`/posts/${id}/comment/${commentId}`, data);
+}
+
+const remove = (id) => {
+  return BackEndCall.delete(`/posts/${id}`);
+};
+
+const removeComment = (id, commentId) => {
+  return BackEndCall.delete(`/posts/${id}/comment/${commentId}`);
+}
+
+// You can only export default when there's one thing to export
+export { getAll, get, getAllComments, create, createComment, update, updateComment, remove, removeComment };

@@ -1,53 +1,55 @@
-import React, { useState, useEffect } from 'react';
-//import { useForm } from '../../hooks/useForm'
-// import PostForm from './PostForm'
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import { func } from "prop-types";
 import * as PostService from "../../api/PostService";
+import '../styles.css'
 
-const Post = () => {
-    
-   const [ Post, setPost ] = useState([])
+const PostForm = ({ getPostsAgain, user }) => {
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
+  const handleSubmit = async () => {
+      let newPost = { title, author: user._id, body };
+      const res = await PostService.create(newPost);
 
-    const makePost = () => {
-      console.log("Post: ", Post)
-      PostService.createPost({Post: Post})
-      setPost('')
-    }
+      if (res.status === 201) {
+          setTitle("");
+          setBody("");
+          getPostsAgain();
+      } else {
+          alert("Server Error");
+      }
+  };
 
-    useEffect(() => {
-      //createPost()
-    }, [])
-
-    return (
-      <div className="post-form-ctr">
-      <div className="form-field-ctr">
-        <h3>Create A Post about Your </h3>
-        <h3>New Vibez Playlist!</h3>
-        <form>
-          <label htmlFor="Post-input"></label>
+  if (!user) {
+      return <div />;
+  }
+  return (
+      <div className="PostForm-inputs">
           <input
-            className="post-input"
-            type="text"
-            id="Post-input"
-            name="body"
-            value={Post}
-            onChange={(e) => setPost(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              type="text"
+              name="title"
+              placeholder="TITLE"
           />
-          <button type="button" onClick={makePost}>
-            Post
-          </button>
-        </form>
-        {/* <PostForm user={user} body={body} /> */}
-        </div>
+          <p>
+              {user.firstName} {user.lastName}
+          </p>
+          <input
+              onChange={(e) => setBody(e.target.value)}
+              value={body}
+              type="text"
+              name="body"
+              placeholder="BODY GOES HERE"
+          />
+          <button onClick={handleSubmit}>Add Post +</button>
       </div>
-    );
-}
+  );
+};
 
-Post.defaultProps = {
-  buttonText: 'Post',
-}
+PostForm.propTypes = {
+  getPostsAgain: func,
+};
 
+export default PostForm;
 
-
-export default Post

@@ -7,7 +7,7 @@ const create = (data, res) => {
 
 const login = (data) => {
     let token = tokenService.getToken();
-    return BackEndCall.post('auth/login', data, token);
+    return BackEndCall.post('/login', data, token);
 };
 
 const getUser = () => {

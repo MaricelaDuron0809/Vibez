@@ -11,7 +11,7 @@ import { getUser } from "../api/UserService";
 import * as  PostService from '../api/PostService'
 import Footer from './Footer/Footer';
 import './styles.css'
-import Likes from '../Components/LikeButton/Like'
+// import Likes from '../Components/LikeButton/Like'
 
 
 
@@ -42,7 +42,7 @@ const VibezPlayer = () => {
             <div className="sect-1">
 
                 <Welcome />   
-                <Likes />
+                {/* <Likes /> */}
                 <PlaylistCtr />
         
             </div>

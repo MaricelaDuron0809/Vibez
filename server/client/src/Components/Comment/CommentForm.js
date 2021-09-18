@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles.css";
 import * as PostService from "../../api/PostService";
 import { func, string } from "prop-types";
+// import Likes from '../LikeButton/Like';
 
 const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
     const [body, setBody] = useState("");
@@ -29,6 +30,7 @@ const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
                 placeholder="BODY GOES HERE"
             />
             <button className="add-comments" onClick={handleSubmit}>+</button>
+            {/* <Likes /> */}
         </div>
     );
 };

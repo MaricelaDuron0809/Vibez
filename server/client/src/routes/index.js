@@ -7,10 +7,14 @@ import ProfilePage from "../pages/ProfilePage";
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/auth/register" component={SignupPage} />
-    <Route exact path="/auth/login" component={LoginPage} />
-    <Route exact path="/auth/auth/" component={VibezPlayer} />
-    <Route exact path="/auth/auth/profile/" component={ProfilePage} />
+    <Route exact path="/auth/register" render={(props) => <SignupPage {...props} />}
+    />
+    <Route exact path="/auth/login" render={(props) => <LoginPage {...props} />}
+    />
+    <Route exact path="/auth/auth/" render={(props) => <VibezPlayer {...props} />}
+    />
+    <Route exact path="/auth/auth/profile/" render={(props) => <ProfilePage {...props} />}
+    />
   </Switch>
 );
 

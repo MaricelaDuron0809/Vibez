@@ -24,23 +24,31 @@ const PostForm = ({ getPostsAgain, user }) => {
       return <div />;
   }
   return (
-      <div className="PostForm-inputs">
+      <div className="post-form-ctr">
+
+      <div className="title-ctr">
+        
           <input
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               type="text"
               name="title"
-              placeholder="TITLE"
-          />
+              placeholder="ADD A NEW POST"
+              className="title"
+              />
+              </div>
           <p>
-              {user.firstName} {user.lastName}
+               {user.name}
           </p>
+          
+
           <input
               onChange={(e) => setBody(e.target.value)}
               value={body}
               type="text"
               name="body"
-              placeholder="BODY GOES HERE"
+              placeholder="SHARE YOUR COMMENTS"
+              className="post-input"
           />
           <button onClick={handleSubmit}>Add Post +</button>
       </div>

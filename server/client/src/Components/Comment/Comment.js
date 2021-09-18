@@ -38,7 +38,7 @@ const Comment = ({ id, author, body, getCommentsAgain, commentId }) => {
                         value={editedAuthor}
                         type="text"
                         name="author"
-                        placeholder="AUTHOR"
+                        placeholder="User Name"
                     />
                 )}
                 :{!isEditing && <span> {body}</span>}
@@ -48,7 +48,7 @@ const Comment = ({ id, author, body, getCommentsAgain, commentId }) => {
                         value={editedBody}
                         type="text"
                         name="body"
-                        placeholder="BODY GOES HERE"
+                        placeholder="Share your comments"
                     />
                 )}
             </span>

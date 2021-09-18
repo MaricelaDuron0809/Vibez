@@ -4,6 +4,9 @@ import * as PostService from "../../api/PostService";
 import Comment from '../Comment/Comment'
 import CommentForm from '../Comment/CommentForm'
 import '../styles.css'
+import editicon from '../../images/editicon.png'
+import trashicon from '../../images/trashicon.png'
+
 
 
 function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
@@ -46,7 +49,8 @@ function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
 
   return (
       <div className="flex-post">
-          <div className="top-row">
+          <div className="title-ctr">
+          <div className="title">
               {!isEditing && <h1>{title}</h1>}
               {isEditing && (
                   <input
@@ -54,14 +58,15 @@ function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
                       value={editedTitle}
                       type="text"
                       name="title"
-                      placeholder="TITLE"
+                      placeholder="New Post Title"
                   />
               )}
-              <div>
-                  <button onClick={handleEdit}>
+              <div className="button-ctr">
+                  <button className="edit" onClick={handleEdit}><img className="edit" src={editicon} alt="edit button"/>
                       {isEditing ? "SUBMIT" : "EDIT"}
                   </button>
-                  <button onClick={handleDelete}>DELETE</button>
+                  <button className="delete" onClick={handleDelete}><img className="edit" src={trashicon} alt="trash button"/></button>
+                  </div>
               </div>
           </div>
           <p>by {author.lastName}</p>
@@ -73,7 +78,7 @@ function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
                       value={editedBody}
                       type="text"
                       name="body"
-                      placeholder="BODY GOES HERE"
+                      placeholder="Share your comments"
                   />
               )}
           </div>

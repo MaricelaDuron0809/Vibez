@@ -5,6 +5,7 @@ import YourPlaylist from './Body/Playlist/YourPlaylist';
 import PopularPlaylist from './Body/PopularPlaylist';
 import PlaylistCtr from '../Components/Body/Playlist/PlaylistCtr'
 import PostForm from './Post/PostForm'
+import PostHeader from './Post/PostHeader'
 import Post from './Post/Post'
 import { getUser } from "../api/UserService";
 import * as  PostService from '../api/PostService'
@@ -46,7 +47,8 @@ const VibezPlayer = () => {
 
 
             <div className="sect-2">
-                <PopularPlaylist />
+                <PostHeader />
+                <div className="post-form-ctr">
                 <PostForm user={user} getPostsAgain={() => fetchPosts()} />
                 {posts.map((post) => {
                     // console.log("WHICH DATA AM I USING: ", post);
@@ -63,15 +65,13 @@ const VibezPlayer = () => {
                         />
                     );
                 })}
-               
+               </div>
             </div>
 
 
 
             </div>
-        <div>
-        </div>
-    <Footer />
+
 </div>
 
     )

@@ -45,7 +45,7 @@ mongoose
   }
   
   
-  app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+  app.listen(PORT, () => console.log(`Server  running on ${PORT}`));
   
   // app.get("/auth", (req, res) => {
     //   res.send("Hello world");

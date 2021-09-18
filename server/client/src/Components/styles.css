@@ -6,6 +6,17 @@ h3 {
     text-align: center;
     color: #ffffff;
     padding-bottom: 5px;
+    
+}
+
+h4 {
+    margin-right: 25%;
+    color: #ffffff;
+}
+.post-header-ctr > h3 {
+    align-items: center;
+    margin-right: 40%;
+    margin-left: 20%;
 }
 .welcome > h1 {
     color: #f8624fff;
@@ -17,31 +28,42 @@ h3 {
 .home-ctr {
     height: 100%;
     width: 100%;
-    background: url('../images/home-background.png');
-    background-size: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-position: center center;
+    background-image: url('../images/home-background.png')
     
 }
 
 .body {
     display: flex;
     flex-direction: row;
-
     width: 100%;
     justify-content: stretch;
 }
 
 .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 125px;
+    margin-bottom: 20px;
 }
 
 .header > img {
-    margin-left: 100%;
+    display: flex;
+}
+.user {
+    display: flex;
+    padding-left: 5%;
+}
+.logo {
+    display: flex;
+    margin-left: 25%;
 }
 .search-results {
     display: flex;
@@ -271,8 +293,11 @@ select {
     padding-top: 10px;
 }
 .post-form-ctr {
+    width: 80%;
     padding: 5px 20px;
     border: 1px solid white;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-form-ctr > h3 {
@@ -283,13 +308,16 @@ select {
 .form-field-ctr {
     margin: 20px;
 }
-.post-input {
+input {
     width: 100%;
-    height: 100px;
+    height: 80px;
+    padding: 12px 20px;
+    box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid white;
+    border: 2px solid white;
+    resize: none;
 }
-.post-input:hover {
+input:hover {
     cursor: pointer;
     background-color: white;
 }
@@ -301,8 +329,19 @@ select {
     color: white;
     border: 1px solid #f8624fff;
     font-weight: bold;
-    margin-left: 80%;
+    margin-left: 25%;
+    margin-right: 5%;
 }
 .logout-button:hover {
     background-color: #f8624fff;
+}
+.delete, .edit {
+    width: 50px;
+    font-size: 14px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }

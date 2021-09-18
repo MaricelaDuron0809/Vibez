@@ -4,6 +4,7 @@ import * as PostService from "../../api/PostService";
 import Comment from '../Comment/Comment'
 import CommentForm from '../Comment/CommentForm'
 import '../styles.css'
+import editicon from '../../images/editicon.png'
 
 
 function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
@@ -58,10 +59,10 @@ function Post({ id, getPostsAgain, title, author, body, postComments, user }) {
                   />
               )}
               <div>
-                  <button onClick={handleEdit}>
+                  <button className="edit" onClick={handleEdit}><img className="edit" src={editicon} alt="website logo"/>
                       {isEditing ? "SUBMIT" : "EDIT"}
                   </button>
-                  <button onClick={handleDelete}>DELETE</button>
+                  <button className="delete" onClick={handleDelete}>DELETE</button>
               </div>
           </div>
           <p>by {author.lastName}</p>

@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// export default function Logout() {
-//     return (
-//         <div>
-//             <p>LOGOUT</p>
-//         </div>
-//     )
-// }
-
-
 import React, { Component } from 'react'
 import { logout } from '../../api/UserService'
 import { Redirect } from 'react-router-dom';

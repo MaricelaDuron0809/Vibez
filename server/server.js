@@ -31,7 +31,7 @@ mongoose
   app.use("/auth", routes);
   
   //This is to catch anything that's trying to hit an api route that isn't made
-  app.all("/auth/*", function (req, res, next) {
+  app.all("/*", function (req, res, next) {
     res.send("THIS IS NOT AN API ROUTE");
 });
   

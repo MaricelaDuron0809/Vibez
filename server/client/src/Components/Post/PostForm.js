@@ -25,6 +25,8 @@ const PostForm = ({ getPostsAgain, user }) => {
   }
   return (
       <div className="post-form-ctr">
+
+      <div className="title-ctr">
         
           <input
               onChange={(e) => setTitle(e.target.value)}
@@ -34,9 +36,12 @@ const PostForm = ({ getPostsAgain, user }) => {
               placeholder="ADD A NEW POST"
               className="title"
               />
+              </div>
           <p>
                {user.name}
           </p>
+          
+
           <input
               onChange={(e) => setBody(e.target.value)}
               value={body}

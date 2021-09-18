@@ -6,8 +6,8 @@ import { func, string } from "prop-types";
 const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
     const [body, setBody] = useState("");
     const handleSubmit = async () => {
-        let newComment = { author: user._id, body, id };
-        // console.log(newComment);
+        let newComment = { author: user, body, id };
+        console.log(newComment);
         const res = await PostService.createComment(id, newComment);
 
         if (res.status === 201) {
@@ -28,7 +28,7 @@ const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
                 name="body"
                 placeholder="BODY GOES HERE"
             />
-            <button onClick={handleSubmit}>Add Comment +</button>
+            <button className="add-comments" onClick={handleSubmit}>+</button>
         </div>
     );
 };

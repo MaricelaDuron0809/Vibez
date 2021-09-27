@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/User");
 
 // Index - GET - Presentational (all of one resource)
 const index = async (req, res) => {

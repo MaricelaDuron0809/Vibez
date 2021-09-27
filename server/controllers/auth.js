@@ -7,7 +7,6 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     // look for user via email
     let foundUser = await User.findOne({ email });
-
     //if we don't find anyone send a 404 and a message so front end knows what to do
     if (!foundUser) {
         console.log("no user");

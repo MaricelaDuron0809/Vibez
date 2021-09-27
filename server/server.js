@@ -27,8 +27,8 @@ app.use(express.static("public"));
 //==================Routes ================================//
 
 
-app.use('/auth', require("./routes/users"));
-app.use("/auth", routes);
+app.use('/', require("./routes/users"));
+app.use("/", routes);
 
 //This is to catch anything that's trying to hit an api route that isn't made
 app.all("/*", function (req, res, next) {
